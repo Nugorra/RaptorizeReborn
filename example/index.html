@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="../css/raptor.css">
+    </head>
+    <body>
+        <button onclick="raptor.trigger()">Rawwrr!</button>
+        <script src="../js/Raptor.js"></script>
+        <script src="../js/Konami.js"></script>
+        <script>
+            var raptor = new Raptor();
+            var konami = new Konami(function() {
+                raptor.trigger();
+            });
+        </script>
+    </body>
+</html>
