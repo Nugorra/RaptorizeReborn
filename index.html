@@ -16,9 +16,9 @@
             Activate from Konami Code: ↑ ↑ ↓ ↓ ← → ← → B A
         </section>
         <script src="/js/Raptor.js"></script>
-        <script src="/js/konami.js"></script>
+        <script src="/js/Konami.js"></script>
         <script>
-            var raptor = new Raptor();
+            var raptor = new Raptor('/RaptorizeReborn/img/raptor.png','/RaptorizeReborn/sounds/raptor-sound.mp3');
             var konami = new Konami(function() {
                 raptor.trigger();
             });
