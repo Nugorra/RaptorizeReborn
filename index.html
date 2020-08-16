@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>RaptorizeReborn - Demo</title>
+        <link rel="stylesheet" href="css/raptor.css">
+    </head>
+    <body>
+        <header>
+            <h1>RaptorizeReborn - Demo</h1>
+        </header>
+        <section>
+            Activate from Script:
+            <button class="raptor">Rawrrr!</button>
+        </section>
+        <section>
+            Activate from Konami Code: ↑ ↑ ↓ ↓ ← → ← → B A
+        </section>
+        <script src="js/Raptor.js"></script>
+        <script src="js/konami.js"></script>
+        <script>
+            var raptor = new Raptor();
+            var konami = new Konami(function() {
+                raptor.trigger();
+            });
+            // konami.sequenzTest();
+
+            document.querySelector('button.raptor').addEventListener('click',function(){
+                var self = this;
+                self.disabled = true;
+                self.classList.add('active');
+                setTimeout(function(){ self.classList.remove('active'); self.disabled = false; }, 5000);
+                raptor.trigger();
+            });
+
+        </script>
+    </body>
+</html>
