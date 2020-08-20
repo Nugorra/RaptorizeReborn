@@ -1,3 +1,22 @@
+#github {
+  position: fixed;
+  top: 5em;
+  right: -5em;
+  border: 1px solid red;
+  width: 20em;
+  transform: rotate(45deg);
+  text-align: center;
+  font-family: Arial;
+  box-shadow: 0.1em 0.1em 0.5em white;
+}
+#github a {
+  display: inline-block;
+  padding: 0.5em;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
 * {
   box-sizing: border-box;
   padding: 0;
@@ -6,10 +25,19 @@
 
 body {
   background-color: black;
-  color: white;
+  color: red;
 }
 
-section {
+section, header, footer {
   max-width: 960px;
   margin: auto;
+}
+
+button.raptor {
+  border: 0;
+  background-color: red;
+  color: white;
+  display: inline-block;
+  padding: 1em 2em;
+  font-weight: bold;
 }
