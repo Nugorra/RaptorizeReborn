@@ -1,0 +1,19 @@
+#github {
+    position: fixed;
+    top: 5em;
+    right: -5em;
+    border: 1px solid red;
+    width: 20em;
+    transform: rotate(45deg);
+    text-align: center;
+    font-family: Arial;
+    box-shadow: .1em .1em .5em white;
+
+    a {
+        display: inline-block;
+        padding: 0.5em;
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+    }
+}
