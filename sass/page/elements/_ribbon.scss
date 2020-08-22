@@ -1,13 +1,14 @@
+$transition: 1s ease-in-out;
 #github {
     position: fixed;
-    top: 5em;
-    right: -5em;
+    top: 4em;
+    right: -5.5em;
     border: 1px solid red;
     width: 20em;
     transform: rotate(45deg);
     text-align: center;
-    font-family: Arial;
     box-shadow: .1em .1em .5em white;
+    @include horizontal-button($primary,$transition);
 
     a {
         display: inline-block;
@@ -15,5 +16,14 @@
         color: white;
         text-decoration: none;
         font-weight: bold;
+        text-shadow: .1em .1em .1em $primary;
+        transition: $transition;
+    }
+
+    &:hover {
+        a {
+            color: $secondary;
+            text-shadow: .1em .1em .1em white;
+        }
     }
 }

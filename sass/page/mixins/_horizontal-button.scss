@@ -1,0 +1,36 @@
+@mixin horizontal-button($color, $transition) {
+     &::before, &::after {
+        z-index: -1;
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-repeat: no-repeat;
+        background-size: 400%;
+        transition: $transition;
+    }
+
+    &::before {
+        @include buttongradient(to left,$color);
+        background-position: top right;
+    }
+
+    &::after {
+        @include buttongradient(to right,$color);
+        background-position: top left;
+    }
+
+    &:hover {
+        &::before {
+            background-position: top left;
+        }
+
+        &::after {
+            background-position: top right;
+        }
+    }
+
+}

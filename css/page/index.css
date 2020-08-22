@@ -1,13 +1,39 @@
 #github {
   position: fixed;
-  top: 5em;
-  right: -5em;
+  top: 4em;
+  right: -5.5em;
   border: 1px solid red;
   width: 20em;
   transform: rotate(45deg);
   text-align: center;
-  font-family: Arial;
   box-shadow: 0.1em 0.1em 0.5em white;
+}
+#github::before, #github::after {
+  z-index: -1;
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-repeat: no-repeat;
+  background-size: 400%;
+  transition: 1s ease-in-out;
+}
+#github::before {
+  background-image: linear-gradient(to left, rgba(255, 0, 0, 0) 33%, rgba(255, 0, 0, 0.25) 34%, rgba(255, 0, 0, 0.25) 65%, rgba(255, 0, 0, 0.75) 66%);
+  background-position: top right;
+}
+#github::after {
+  background-image: linear-gradient(to right, rgba(255, 0, 0, 0) 33%, rgba(255, 0, 0, 0.25) 34%, rgba(255, 0, 0, 0.25) 65%, rgba(255, 0, 0, 0.75) 66%);
+  background-position: top left;
+}
+#github:hover::before {
+  background-position: top left;
+}
+#github:hover::after {
+  background-position: top right;
 }
 #github a {
   display: inline-block;
@@ -15,6 +41,12 @@
   color: white;
   text-decoration: none;
   font-weight: bold;
+  text-shadow: 0.1em 0.1em 0.1em red;
+  transition: 1s ease-in-out;
+}
+#github:hover a {
+  color: black;
+  text-shadow: 0.1em 0.1em 0.1em white;
 }
 
 * {
@@ -23,21 +55,72 @@
   margin: 0;
 }
 
+html {
+  font-family: Arial, Verdana, sans-serif;
+  font-size: 22px;
+}
+
 body {
   background-color: black;
   color: red;
 }
 
-section, header, footer {
+section, header {
   max-width: 960px;
-  margin: auto;
+  margin: 1.5em auto;
+  text-align: center;
 }
 
 button.raptor {
+  position: relative;
   border: 0;
-  background-color: red;
   color: white;
   display: inline-block;
   padding: 1em 2em;
+  font-size: 1rem;
   font-weight: bold;
+  margin: 1em;
+  cursor: pointer;
+  background-color: transparent;
+  border-radius: 0.5em 0;
+  overflow: hidden;
+  transition: 1s ease-in-out;
+}
+button.raptor::before, button.raptor::after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+button.raptor::after {
+  content: "";
+  -webkit-clip-path: circle(100%);
+          clip-path: circle(100%);
+  z-index: -1;
+  background-color: red;
+  transition: -webkit-clip-path 1s ease-in-out;
+  transition: clip-path 1s ease-in-out;
+  transition: clip-path 1s ease-in-out, -webkit-clip-path 1s ease-in-out;
+}
+button.raptor::before {
+  content: "";
+  -webkit-clip-path: circle(0);
+          clip-path: circle(0);
+  z-index: -1;
+  background-color: green;
+  transition: -webkit-clip-path 1s ease-in-out;
+  transition: clip-path 1s ease-in-out;
+  transition: clip-path 1s ease-in-out, -webkit-clip-path 1s ease-in-out;
+}
+button.raptor.active {
+  border-radius: 0 0.5em;
+}
+button.raptor.active::after {
+  -webkit-clip-path: circle(0);
+          clip-path: circle(0);
+}
+button.raptor.active::before {
+  -webkit-clip-path: circle(100%);
+          clip-path: circle(100%);
 }

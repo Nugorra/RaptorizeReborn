@@ -4,7 +4,8 @@
     right: 0;
     bottom: calc(-100%);
     width: auto;
-    max-height: 40vh;
+    max-height: 50vh;
+    height: 50vh;
     background-color: transparent;
 
     &.active {
@@ -18,18 +19,18 @@
         bottom: calc(-100%);
     }
 
-    20% {
+    10% {
         right: calc(0%);
         bottom: calc(0%);
     }
 
-    30% {
+    15% {
         right: calc(0%);
-        bottom: calc(-10%);
+        bottom: calc(-15%);
     }
 
     100% {
-        right: calc(100%);
-        bottom: calc(-10%);
+        right: calc(120%);
+        bottom: calc(-15%);
     }
 }

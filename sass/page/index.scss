@@ -7,22 +7,70 @@
     padding: 0;
     margin: 0;
 }
+html {
+    font-family: Arial, Verdana, sans-serif;
+    font-size: 22px;
+}
 
 body {
     background-color: $secondary;
     color: $primary;
 }
 
-section, header, footer {
+section, header {
     max-width: 960px;
-    margin: auto;
+    margin: 1.5em auto;
+    text-align: center;
 }
 
 button.raptor {
+    position: relative;
     border: 0;
-    background-color: $primary;
     color: white;
     display: inline-block;
     padding: 1em 2em;
+    font-size: 1rem;
     font-weight: bold;
+    margin: 1em;
+    cursor: pointer;
+    background-color: transparent;
+    border-radius: 0.5em 0;
+    overflow: hidden;
+    transition: 1s ease-in-out;
+
+    &::before, &::after {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+    }
+
+    &::after {
+        content: '';
+        clip-path: circle(100%);
+        z-index: -1;
+        background-color: $primary;
+        transition: clip-path 1s ease-in-out;
+    }
+
+    &::before {
+        content: '';
+        clip-path: circle(0);
+        z-index: -1;
+        background-color: green;
+        transition: clip-path 1s ease-in-out;
+
+    }
+
+    &.active {
+        border-radius: 0 0.5em;
+        &::after {
+            clip-path: circle(0);
+        }
+
+        &::before {
+            clip-path: circle(100%);
+        }
+    }
 }
